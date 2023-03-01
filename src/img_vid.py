@@ -6,11 +6,12 @@ from youtubesearchpython import VideosSearch
 import os
 import glob
 from PIL import Image
+from moviepy.video.fx.all import crop
 
 def imgs2Vid(term):
     
 
-	videosSearch = VideosSearch('{}'.format(term), limit = 5)
+	videosSearch = VideosSearch('{}'.format(term), limit = 8)
 
 	filenames = []
     
@@ -22,11 +23,11 @@ def imgs2Vid(term):
 	#filenames  = ["./frames/"+x for x in filenames]
 
 	clips = [editor.ImageClip(m).set_duration(1) for m in filenames]
+	clips = [crop(c, x1=100, width=1080).resize(5) for c in clips]
 
 	concat_clip = editor.concatenate_videoclips(clips, method="compose")
 	
 	return concat_clip
-	#concat_clip.write_videofile("test.mp4", fps=24)
 
 
 def download_png(url, name):

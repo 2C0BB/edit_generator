@@ -4,7 +4,7 @@ from pytube import YouTube
 from youtubesearchpython import VideosSearch
 
 def YTDownload(link):
-    ytObject = YouTube("what is {}".format(link))
+    ytObject = YouTube(link)
     ytObject = ytObject.streams.get_highest_resolution()
     
     try:

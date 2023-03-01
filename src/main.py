@@ -2,7 +2,7 @@ import vid_gen
 
 
 if __name__ == "__main__":
-
-	MUSIC = ['tpgi.mp4', 18.0]
-	vid_gen.generate_video("what is francium", MUSIC)
+	#start time, time till beat drop, time after beat drop
+	MUSIC = "spvln.mp3"
+	vid_gen.generate_video("what is plutonium", "plutonium element", MUSIC)
 	#img_vid.clear_folder()
